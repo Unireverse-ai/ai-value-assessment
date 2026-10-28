@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' file:; script-src 'self' file:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>AI Value Assessment — UniReverseAI</title>
+<style>
+:root{color-scheme:light;--paper:#f7f6f2;--ink:#171717;--muted:#66645f;--rule:#d9d7d0;--soft:#eeede7;--warning:#725126}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.55}button,input{font:inherit}button,a,input{outline-offset:4px}a{color:inherit;text-underline-offset:4px}.wrap{max-width:1320px;margin:auto;padding:28px 44px 48px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--ink);padding-bottom:22px}.brand{font-size:20px;font-weight:700;letter-spacing:-.8px}.brand span{font-weight:400}.tag{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}header{padding:48px 0 30px;max-width:880px}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,5vw,68px);font-weight:400;line-height:1.05;letter-spacing:-2.5px;margin:13px 0 20px}header p{max-width:690px;color:var(--muted);font-size:17px;margin:0}.notice{border:1px solid var(--rule);padding:13px 17px;display:flex;gap:15px;align-items:baseline;margin-bottom:28px;font-size:12px;color:var(--muted)}.notice strong{font-size:10px;letter-spacing:1px;white-space:nowrap;color:var(--ink)}.layout{display:grid;grid-template-columns:minmax(340px,.94fr) minmax(460px,1.25fr);gap:38px}.section-title{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid var(--ink);padding:16px 0 11px;gap:10px}.section-title h2{font-size:13px;margin:0;letter-spacing:.3px;font-weight:600}.section-title span{font-size:11px;color:var(--muted)}.presets{display:flex;gap:7px;margin:0 0 18px}.presets button{border:1px solid var(--rule);background:transparent;border-radius:0;padding:8px 12px;cursor:pointer;font-size:12px}.presets button.active{background:var(--ink);color:white;border-color:var(--ink)}fieldset{border:0;margin:0 0 20px;padding:0}legend{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);padding:0 0 10px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:13px 16px}.field label{font-size:12px;display:block;margin-bottom:5px}.field .control{display:flex;align-items:center;border-bottom:1px solid #aaa79e;background:#fffdf9}.field input{width:100%;min-width:0;border:0;background:transparent;padding:9px 10px;color:var(--ink);font-size:16px;font-variant-numeric:tabular-nums}.field .unit{padding:0 9px;font-size:10px;color:var(--muted);white-space:nowrap}.hint{font-size:11px;color:var(--muted);line-height:1.5;margin:10px 0 0}.error{color:#8c2b20;font-size:13px;min-height:0}.error:empty{display:none}.cards{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid var(--rule);border-top:1px solid var(--rule)}.card{padding:21px 20px 18px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-height:133px;background:#fffdf9}.card.dark{background:var(--ink);color:#fff}.card .label{font-size:10px;text-transform:uppercase;letter-spacing:1.1px;color:var(--muted)}.card.dark .label{color:#c0beb7}.big{font-family:Georgia,'Times New Roman',serif;font-size:36px;letter-spacing:-1.5px;line-height:1.2;margin:12px 0 6px;font-variant-numeric:lining-nums tabular-nums}.big small{font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0}.card p{font-size:11px;color:var(--muted);margin:0;line-height:1.4}.card.dark p{color:#c0beb7}.interpretation{margin:16px 0 25px;padding-left:14px;border-left:2px solid var(--ink);font-size:13px;line-height:1.6}.breakdown{margin:16px 0 25px}.row{display:flex;justify-content:space-between;gap:12px;font-size:12px;border-bottom:1px solid var(--rule);padding:9px 0}.row span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}.row.total{font-weight:600;border-bottom:1px solid var(--ink)}table{border-collapse:collapse;width:100%;font-size:12px;font-variant-numeric:tabular-nums}td,th{text-align:right;padding:10px 9px 10px 0;border-bottom:1px solid var(--rule)}th{font-weight:400;color:var(--muted);font-size:10px}td:first-child,th:first-child{text-align:left}tr.current td{font-weight:600}.notes{font-size:11px;color:var(--muted);line-height:1.6;padding:16px 0}.notes p{margin:0 0 8px}.notes strong{color:var(--ink);font-weight:500}.download{display:flex;gap:8px;padding-top:10px;flex-wrap:wrap}.download button{border:1px solid var(--ink);background:transparent;padding:9px 13px;cursor:pointer;font-size:12px}.download button:first-child{background:var(--ink);color:#fff}footer{display:flex;justify-content:space-between;gap:15px;border-top:1px solid var(--ink);margin-top:28px;padding-top:17px;color:var(--muted);font-size:10px}.textlink{white-space:nowrap}#roi-line{color:var(--ink)}.fine{font-size:10px;color:var(--muted)}[hidden]{display:none!important}@media(max-width:1000px){.wrap{padding:25px}.layout{grid-template-columns:1fr 1.1fr;gap:25px}.big{font-size:30px}.card{padding:17px 14px}}@media(max-width:760px){.wrap{padding:20px}.layout{display:block}.top .tag{max-width:130px;text-align:right;font-size:9px}header{padding-top:34px}h1{letter-spacing:-1.5px}.notice{display:block}.notice strong{display:block;margin-bottom:4px}.right{margin-top:32px}footer{display:block}footer span{display:block;margin-bottom:6px}.big{font-size:34px}.cards{margin-top:0}}
+</style>
+<script src="calculator.js" defer></script>
+<script src="calculator-example.js" defer></script>
+<script src="calculator-ui.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+<nav class="top" aria-label="Page identity"><div class="brand">UniReverse<span>AI</span></div><div class="tag">Applied AI / investment assessment</div></nav>
+<header><div class="eyebrow">Public reference · 01</div><h1>Make the assumptions<br>earn the investment.</h1><p>Explore what a workflow change could release in capacity, what could become cash savings, and what it costs to operate.</p></header>
+<div class="notice"><strong>SYNTHETIC EXAMPLE</strong><span>All presets are illustrative manufacturing enquiry assumptions. They are not measured customer outcomes or a quotation.</span></div>
+<main class="layout">
+<section class="left" aria-labelledby="inputs-title">
+<div class="section-title"><h2 id="inputs-title">01 / Define the change</h2><span id="preset-name">Base assumptions</span></div>
+<div class="presets" aria-label="Load an illustrative preset"><button type="button" data-preset="0">Conservative</button><button type="button" data-preset="1" class="active">Base</button><button type="button" data-preset="2">Optimistic</button></div>
+<form id="inputs" novalidate>
+<fieldset><legend>Workflow &amp; adoption</legend><div class="fields">
+<div class="field"><label for="monthly_volume">Incoming volume</label><div class="control"><input id="monthly_volume" type="number" min="0" step="any" required><span class="unit">items/mo</span></div></div>
+<div class="field"><label for="eligible_share">Eligible share</label><div class="control"><input id="eligible_share" type="number" min="0" max="100" step="any" required><span class="unit">%</span></div></div>
+<div class="field"><label for="adoption">Adoption among eligible items</label><div class="control"><input id="adoption" type="number" min="0" max="100" step="any" required><span class="unit">%</span></div></div>
+<div class="field"><label for="loaded_hourly_cost">Loaded handling cost</label><div class="control"><input id="loaded_hourly_cost" type="number" min="0" step="any" required><span class="unit">EUR/h</span></div></div>
+<div class="field"><label for="minutes_before">Handling before</label><div class="control"><input id="minutes_before" type="number" min="0" step="any" required><span class="unit">min/item</span></div></div>
+<div class="field"><label for="minutes_after">Handling after</label><div class="control"><input id="minutes_after" type="number" min="0" step="any" required><span class="unit">min/item</span></div></div>
+</div><p class="hint">Use the same process boundary before and after. “Handling after” excludes the separate oversight entered below.</p></fieldset>
+<fieldset><legend>Cash realization &amp; implementation</legend><div class="fields">
+<div class="field"><label for="cash_realization_rate">Cash realization rate</label><div class="control"><input id="cash_realization_rate" type="number" min="0" max="100" step="any" required><span class="unit">%</span></div></div>
+<div class="field"><label for="one_time_implementation">One-time implementation</label><div class="control"><input id="one_time_implementation" type="number" min="0" step="any" required><span class="unit">EUR</span></div></div>
+</div><p class="hint">What share of released handling cost actually changes spending? Enter 0% when no cash reduction is supported.</p></fieldset>
+<fieldset><legend>Incremental operating cost</legend><div class="fields">
+<div class="field"><label for="recurring_ops">Operations, excluding items below</label><div class="control"><input id="recurring_ops" type="number" min="0" step="any" required><span class="unit">EUR/mo</span></div></div>
+<div class="field"><label for="model_and_infra">Model &amp; infrastructure</label><div class="control"><input id="model_and_infra" type="number" min="0" step="any" required><span class="unit">EUR/mo</span></div></div>
+<div class="field"><label for="oversight_hours">Additional oversight time</label><div class="control"><input id="oversight_hours" type="number" min="0" step="any" required><span class="unit">h/mo</span></div></div>
+<div class="field"><label for="oversight_incremental_hourly_cost">Oversight: additional cash rate</label><div class="control"><input id="oversight_incremental_hourly_cost" type="number" min="0" step="any" required><span class="unit">EUR/h</span></div></div>
+</div><p class="hint">Oversight reduces available capacity. Use an additional cash rate of zero for existing payroll with no extra payment.</p></fieldset>
+</form>
+<p id="error" class="error" role="alert"></p>
+<div class="download"><button type="button" id="download-inputs">Export assumptions</button><button type="button" id="download-results">Export calculation</button></div>
+<p class="fine">EUR throughout. Files download locally; no data is sent or retained.</p>
+</section>
+<section class="right" aria-labelledby="results-title">
+<div class="section-title"><h2 id="results-title">02 / Inspect the case</h2><span>Steady-state assumptions</span></div>
+<div id="results">
+<div class="cards">
+<div class="card"><div class="label">Net capacity recovered</div><div class="big" id="capacity">—</div><p>After additional oversight. This is time, not cash.</p></div>
+<div class="card dark"><div class="label">Monthly net cash benefit</div><div class="big" id="monthly">—</div><p>After all incremental operating costs.</p></div>
+<div class="card"><div class="label">Simple payback</div><div class="big" id="payback">—</div><p>Assumes the same monthly benefit from month one.</p></div>
+<div class="card"><div class="label">First-year net cash benefit</div><div class="big" id="year-net">—</div><p id="roi-line">—</p></div>
+</div>
+<p class="interpretation" id="interpretation" aria-live="polite"></p>
+<div class="breakdown" aria-label="Monthly cash calculation">
+<div class="row"><span>Adopted, eligible items / month</span><span id="processed">—</span></div>
+<div class="row"><span>Gross handling hours released</span><span id="gross-hours">—</span></div>
+<div class="row"><span>Handling cost potential before realization</span><span id="potential">—</span></div>
+<div class="row"><span>Gross cash reduction after realization</span><span id="gross-cash">—</span></div>
+<div class="row"><span>Less operations + model/infrastructure</span><span id="operations">—</span></div>
+<div class="row"><span>Less additional oversight cash cost</span><span id="oversight">—</span></div>
+<div class="row total"><span>Monthly net cash benefit</span><span id="net-line">—</span></div>
+</div>
+<div class="section-title"><h2>03 / Test the fragile assumption</h2><span>Cash realization only</span></div>
+<table aria-label="One-factor cash realization sensitivity"><thead><tr><th>Realization</th><th>Net cash / month</th><th>Payback</th></tr></thead><tbody id="sensitivity"></tbody></table>
+<div class="notes"><p>All other current inputs stay fixed. Capacity, handling cost potential, and cash reduction describe overlapping views: <strong>do not add them together.</strong></p><p>Year-one ROI = year-one net benefit ÷ (implementation + 12 months of recurring costs). No ramp-up, revenue uplift, tax, financing, growth, or discounting is included.</p><p><a href="docs/methodology.md">Read the methodology</a> · <a href="docs/evidence-checklist.md">Collect the evidence</a> · <a href="README.md">Repository guide</a></p></div>
+</div>
+</section>
+</main>
+<footer><span>UniReverseAI / Understand the work. Make AI pay back.</span><span>Local reference calculator · Synthetic inputs · No external requests</span></footer>
+</div>
+<noscript><p style="padding:20px">Enable JavaScript for the interactive calculator, or run the Python command in the repository guide.</p></noscript>
+</body>
+</html>
