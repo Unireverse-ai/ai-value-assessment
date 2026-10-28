@@ -1,5 +1,6 @@
 import copy
 import json
+import math
 import shutil
 import subprocess
 import sys
@@ -8,7 +9,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from assess import build_report, evaluate, markdown, validate_inputs
+from assess import build_report, evaluate, load_json, markdown, validate_inputs
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -100,6 +101,52 @@ class AssessmentTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             evaluate(dict(self.inputs, monthly_volume=1e308, minutes_before=1e308))
 
+    def test_very_large_integer_has_a_clear_validation_error(self):
+        with self.assertRaisesRegex(ValueError, "numeric range"):
+            evaluate(dict(self.inputs, monthly_volume=10 ** 1000))
+
+    def test_roi_does_not_overflow_a_finite_ratio(self):
+        p = dict(self.inputs, monthly_volume=1, eligible_share=1, adoption=1,
+                 minutes_before=60, minutes_after=0, loaded_hourly_cost=1e306,
+                 cash_realization_rate=1, one_time_implementation=1e307,
+                 recurring_ops=0, model_and_infra=0, oversight_hours=0)
+        self.assertAlmostEqual(evaluate(p)["first_year_roi_on_total_cost_pct"], 20)
+
+    def test_negative_capacity_with_positive_cash_is_flagged_not_hidden(self):
+        p = dict(self.inputs, oversight_hours=200, oversight_incremental_hourly_cost=0)
+        report = build_report(dict(self.document, inputs=p, scenarios=[{"name": "Review load"}]))
+        self.assertLess(report["base_results"]["net_capacity_hours_after_oversight"], 0)
+        self.assertGreater(report["base_results"]["monthly_net_cash_benefit"], 0)
+        self.assertTrue(any("operational feasibility" in line for line in report["base_interpretation_flags"]))
+        self.assertIn("net human effort increases", markdown(report))
+
+    def test_json_rejects_duplicate_keys_and_nonstandard_constants(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "invalid.json"
+            for text in ('{"inputs":{"adoption":0.1,"adoption":0.9}}',
+                         '{"value":NaN}', '{"value":Infinity}', '{"value":-Infinity}'):
+                with self.subTest(text=text), self.assertRaises(ValueError):
+                    source.write_text(text)
+                    load_json(source)
+
+    def test_document_version_labels_and_unknown_fields_are_strict(self):
+        for change in ({"schema_version": True}, {"schema_version": 1.0},
+                       {"title": []}, {"evidence_status": ""}, {"scenario_typo": []},
+                       {"scenarios": [{"name": "A", "override_typo": {}}]}):
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                build_report(dict(self.document, **change))
+
+    def test_cli_duplicate_input_fails_without_writing_report(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "duplicate.json"
+            source.write_text('{"schema_version":1,"schema_version":1}')
+            out = Path(directory) / "out"
+            run = subprocess.run([sys.executable, str(ROOT / "assess.py"), str(source),
+                                  "--output-dir", str(out)], capture_output=True, text=True)
+            self.assertEqual(run.returncode, 2)
+            self.assertIn("Duplicate JSON object key", run.stderr)
+            self.assertFalse(out.exists())
+
     def test_missing_unknown_inputs_are_rejected(self):
         p = dict(self.inputs)
         del p["adoption"]
@@ -180,6 +227,10 @@ class AssessmentTests(unittest.TestCase):
             {"one_time_implementation": 0, "recurring_ops": 0, "model_and_infra": 0,
              "oversight_incremental_hourly_cost": 0},
         )]
+        inputs.append(dict(self.inputs, monthly_volume=1, eligible_share=1, adoption=1,
+                           minutes_before=60, minutes_after=0, loaded_hourly_cost=1e306,
+                           cash_realization_rate=1, one_time_implementation=1e307,
+                           recurring_ops=0, model_and_infra=0, oversight_hours=0))
         script = """
 const model = require('./calculator.js');
 const sample = require('./calculator-example.js');
@@ -210,7 +261,7 @@ process.stdin.on('end', () => {
                     if value is None:
                         self.assertIsNone(actual[name])
                     else:
-                        self.assertAlmostEqual(actual[name], value, places=8)
+                        self.assertTrue(math.isclose(actual[name], value, rel_tol=1e-12, abs_tol=1e-8), (actual[name], value))
 
 
 if __name__ == "__main__":

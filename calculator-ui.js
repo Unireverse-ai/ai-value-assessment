@@ -52,7 +52,10 @@
         : r.first_year_net_cash_benefit < 0
           ? "The current assumptions produce a positive monthly benefit, but the implementation cost is not recovered within the first year."
           : "The current assumptions recover the implementation cost within the first year. Confirm the quality, adoption, and cash mechanism with measured evidence.";
-      text("interpretation", interpretation);
+      const capacityNote = r.net_capacity_hours_after_oversight < 0
+        ? " Additional oversight exceeds released handling time, so net human effort increases. A cash benefit alone does not establish staffing feasibility."
+        : "";
+      text("interpretation", interpretation + capacityNote);
       text("processed", number(r.processed_items_per_month));
       text("gross-hours", number(r.gross_handling_hours_released) + " h");
       text("potential", eur(r.handling_cost_potential));

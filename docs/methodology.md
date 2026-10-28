@@ -25,6 +25,8 @@ The unit of analysis must be stable: for example, an incoming manufacturing enqu
 
 All numeric inputs must be finite and non-negative. The three fractions are bounded by zero and one. Inputs are not rounded to integers: average volume and average handling times can be fractional. `minutes_after` may exceed `minutes_before`; the resulting deterioration remains visible.
 
+JSON input uses an integer `schema_version: 1` and the documented fields only. Duplicate keys and non-standard `NaN`/`Infinity` constants are rejected instead of silently accepting a later value. Very large inputs and derived results must stay within finite floating-point range. Python and browser formulas are checked against the same representative cases, including a large-value ROI ratio.
+
 `currency` is a label, defaulting to EUR in the example. The calculator does not perform exchange-rate conversion. Use one currency and a consistent cost period throughout.
 
 ## Formulas
@@ -48,7 +50,7 @@ Simple payback months                 I / X, only when X > 0
 
 The first-year ROI denominator is **implementation plus twelve months of all incremental recurring costs**. This differs from an implementation-only ROI calculation; the field name makes the chosen denominator explicit. A zero total cost produces an undefined ROI rather than infinity. A non-positive monthly net cash benefit produces no simple payback. Zero implementation cost with positive monthly cash benefit produces zero-month payback.
 
-Simple payback assumes the same monthly net benefit from the start and allows fractional months. It excludes discounting and does not mean a project has recovered its cost within year one. For a staged rollout, build a month-by-month model instead.
+Simple payback assumes the same monthly net benefit from the start and allows fractional months. It excludes discounting and does not mean a project has recovered its cost within year one. For a staged rollout, use the separate [monthly cash-flow model](cashflow.md), which records payment timing and changes in adoption, volume and cost.
 
 ## Capacity and cash are different views
 
@@ -68,6 +70,8 @@ Do not add `handling_cost_potential`, `gross_monthly_cash_reduction`, or a monet
 If an existing salaried team adds eight hours of monitoring without additional payment, enter eight oversight hours and an incremental oversight rate of zero. Capacity decreases by eight hours; unchanged payroll is not invented as an additional cash expense. If additional paid review is purchased for those eight hours, enter the actual incremental rate.
 
 The model applies the cash realization rate symmetrically when handling becomes slower. A negative gross cash reduction represents increased handling cost under the same realization assumption. For a real deterioration, check whether that cash response is plausible rather than accepting the input mechanically.
+
+Additional oversight can exceed released handling time while the cash calculation remains positive, for example if external processing spend is reduced and an existing salaried team absorbs extra work. The report flags this combination. It is not automatically a mathematical contradiction, but it requires a separate staffing and quality assessment; a cash benefit cannot establish operational feasibility.
 
 ## Worked base example: synthetic assumptions
 

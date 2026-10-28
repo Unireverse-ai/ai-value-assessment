@@ -31,7 +31,7 @@
       simple_payback_months: net > 0 ? p.one_time_implementation / net : null,
       first_year_total_cost: yearCost,
       first_year_net_cash_benefit: yearNet,
-      first_year_roi_on_total_cost_pct: yearCost > 0 ? 100 * yearNet / yearCost : null
+      first_year_roi_on_total_cost_pct: yearCost > 0 ? (yearNet / yearCost) * 100 : null
     };
     if (Object.values(result).some(value => value !== null && !Number.isFinite(value))) throw new Error("Inputs produce results outside the supported numeric range.");
     return result;

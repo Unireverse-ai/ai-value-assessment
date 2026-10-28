@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "title": "Synthetic staged rollout \u2014 optimistic steady state with delayed adoption",
+  "evidence_status": "Entirely illustrative assumptions. Not a measured rollout, customer result or service quote.",
+  "currency": "EUR",
+  "inputs": {
+    "monthly_volume": 1200,
+    "eligible_share": 0.9,
+    "adoption": 0.9,
+    "minutes_before": 18,
+    "minutes_after": 5,
+    "loaded_hourly_cost": 32,
+    "cash_realization_rate": 0.4,
+    "one_time_implementation": 12000,
+    "recurring_ops": 240,
+    "model_and_infra": 240,
+    "oversight_hours": 6,
+    "oversight_incremental_hourly_cost": 36
+  },
+  "implementation_payments": [
+    {
+      "month": 0,
+      "amount": 5000
+    },
+    {
+      "month": 2,
+      "amount": 4000
+    },
+    {
+      "month": 4,
+      "amount": 3000
+    }
+  ],
+  "months": [
+    {
+      "month": 1,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.15,
+        "model_and_infra": 80,
+        "oversight_hours": 16
+      }
+    },
+    {
+      "month": 2,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.35,
+        "model_and_infra": 120,
+        "oversight_hours": 12
+      }
+    },
+    {
+      "month": 3,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.55,
+        "model_and_infra": 160,
+        "oversight_hours": 10
+      }
+    },
+    {
+      "month": 4,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.75,
+        "model_and_infra": 210,
+        "oversight_hours": 8
+      }
+    },
+    {
+      "month": 5,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.85,
+        "model_and_infra": 230,
+        "oversight_hours": 6
+      }
+    },
+    {
+      "month": 6,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.9,
+        "model_and_infra": 240,
+        "oversight_hours": 6
+      }
+    },
+    {
+      "month": 7,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.9,
+        "model_and_infra": 240,
+        "oversight_hours": 6
+      }
+    },
+    {
+      "month": 8,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.9,
+        "model_and_infra": 240,
+        "oversight_hours": 6
+      }
+    },
+    {
+      "month": 9,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.9,
+        "model_and_infra": 240,
+        "oversight_hours": 6
+      }
+    },
+    {
+      "month": 10,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.9,
+        "model_and_infra": 240,
+        "oversight_hours": 6
+      }
+    },
+    {
+      "month": 11,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.9,
+        "model_and_infra": 240,
+        "oversight_hours": 6
+      }
+    },
+    {
+      "month": 12,
+      "overrides": {
+        "monthly_volume": 1200,
+        "adoption": 0.9,
+        "model_and_infra": 240,
+        "oversight_hours": 6
+      }
+    }
+  ]
+}
