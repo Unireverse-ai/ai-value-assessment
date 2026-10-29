@@ -1,6 +1,6 @@
 # AI Value Assessment
 
-[![Verify calculations](https://github.com/tom-unireverse/ai-value-assessment/actions/workflows/verify.yml/badge.svg)](https://github.com/tom-unireverse/ai-value-assessment/actions/workflows/verify.yml)
+[![Verify calculations](https://github.com/Unireverse-ai/ai-value-assessment/actions/workflows/verify.yml/badge.svg)](https://github.com/Unireverse-ai/ai-value-assessment/actions/workflows/verify.yml)
 
 **Time saved is a capacity measure. Cash saved needs a separate explanation.**
 
@@ -94,6 +94,6 @@ The workflow publishes steady-state and cash-flow reports in each job summary an
 
 We help companies understand workflows, assess where AI can create measurable value, and integrate systems into day-to-day operations. Discuss a workflow or request private due-diligence material at [Eric@unireverseai.com](mailto:Eric@unireverseai.com).
 
-Related references: [sales workflow and control tests](https://github.com/tom-unireverse/sales-workflow-reference) · [delivery scope, buyer questions and acceptance materials](https://github.com/tom-unireverse/delivery-playbook).
+Related references: [sales workflow and control tests](https://github.com/Unireverse-ai/sales-workflow-reference) · [delivery scope, buyer questions and acceptance materials](https://github.com/Unireverse-ai/delivery-playbook).
 
 Source and documentation are available for inspection. See [RIGHTS.md](RIGHTS.md) for rights and use; this package does not grant an open-source license.
