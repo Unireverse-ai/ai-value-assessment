@@ -1,8 +1,8 @@
-# Synthetic manufacturing enquiry workflow — investment assessment
+# Sample manufacturing enquiry workflow — investment assessment
 
-**Evidence status:** Illustrative assumptions only. Not measured results, a client quote, or a UniReverseAI deployment.
+**Evidence status:** Illustrative assumptions for a sample manufacturing enquiry workflow.
 
-Reproducible calculation of supplied assumptions. This is not a measured customer result.
+Reproducible calculation of the supplied assumptions.
 
 ## Scenario comparison
 

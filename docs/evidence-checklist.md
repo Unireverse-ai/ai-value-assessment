@@ -1,6 +1,6 @@
 # Evidence checklist for an AI investment brief
 
-This is a collection guide for a proposed assessment. It is not a statement that UniReverseAI has collected the listed evidence or delivered the illustrative project.
+The collection guide we work through in stages 01 Understand and 02 Assess before an assumption goes into the model. Each row names the evidence and the decision it supports.
 
 | Question | Evidence to collect | Decision consequence |
 |---|---|---|
@@ -33,7 +33,7 @@ Known exclusions:
 Next review trigger:
 ```
 
-Keep customer records, pricing, contracts, and personal data in an agreed private location. A public example can show the measurement method and aggregate result only when its provenance and publication permission support that release.
+Keep customer records, pricing, contracts, and personal data in an agreed private location. Publish a method or aggregate result only with the owner's permission.
 
 ## Stop or rescope signals
 
@@ -44,4 +44,4 @@ Keep customer records, pricing, contracts, and personal data in an agreed privat
 - Ongoing costs or rollout timing are absent from the business case.
 - Scenarios rely on one unmeasured assumption to produce all of the positive return.
 
-These signals call for a smaller pilot, more evidence, a revised cost model, or a different workflow. They are useful outcomes of an opportunity assessment.
+Each signal points to a smaller pilot, more evidence, a revised cost model or a different workflow. Those are valid outcomes of an assessment.

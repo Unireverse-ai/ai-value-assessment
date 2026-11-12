@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "title": "Synthetic staged rollout \u2014 optimistic steady state with delayed adoption",
-  "evidence_status": "Entirely illustrative assumptions. Not a measured rollout, customer result or service quote.",
+  "title": "Staged rollout \u2014 optimistic steady state with delayed adoption",
+  "evidence_status": "Illustrative assumptions for a staged rollout.",
   "currency": "EUR",
   "inputs": {
     "monthly_volume": 1200,

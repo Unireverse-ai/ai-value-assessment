@@ -6,7 +6,7 @@ The steady-state model answers “what would a representative month look like?�
 python3 cashflow.py examples/staged-rollout.json
 ```
 
-This writes `artifacts/cashflow/cashflow.json` and `cashflow.md`. The [committed example report](../examples/staged-rollout-report.md) can be read without running code; its full assumptions are in [staged-rollout.json](../examples/staged-rollout.json).
+This writes `artifacts/cashflow/cashflow.json` and `cashflow.md`. Stage 02 Assess uses it when a pilot has a ramp. The [committed example report](../examples/staged-rollout-report.md) can be read without running code; its full assumptions are in [staged-rollout.json](../examples/staged-rollout.json).
 
 ## Reuse one economic definition
 
@@ -53,16 +53,16 @@ When no funding deficit occurs, “recovery after a deficit” is not applicable
 
 ## What the shipped example shows
 
-The example starts with the optimistic steady-state inputs from `manufacturing.json`, then explicitly stages adoption from 15% to 90%. It includes extra early oversight, changing model costs and EUR 12,000 implementation payments in months 0, 2 and 4. These are invented planning assumptions, not a forecast derived from operating evidence.
+The example starts with the optimistic steady-state inputs from `manufacturing.json`, then explicitly stages adoption from 15% to 90%. It includes extra early oversight, changing model costs and EUR 12,000 implementation payments in months 0, 2 and 4. They are planning inputs for the example.
 
 - The steady-state optimistic calculation displays about 6.00 months of simple, fractional payback.
 - The staged twelve-month calculation produces EUR 6,063.04 cumulative net cash flow and a largest modelled funding gap of EUR 9,794.64.
 - Full declared implementation cost is paid and closing cash stays nonnegative from month 9 through month 12. The first-year result is lower than the immediate steady-state comparison because adoption takes time.
 
-The comparison illustrates a timing effect. It does not establish that this adoption trajectory, cash realization or service quality is achievable. Record the evidence behind the changed inputs before making a pilot or purchasing decision.
+The comparison shows the timing effect. Record the evidence behind each changed input before a pilot or purchasing decision.
 
 ## Boundaries
 
 No adoption curve, monthly cost growth, probability, revenue increase, tax, financing, discounting or terminal value is inferred. Monthly volume can vary because it is explicitly supplied. The steady-state browser calculator remains a separate single-month tool; it does not execute the monthly schedule. Both tools reject results outside finite floating-point range.
 
-Monthly cash effects can be positive while net human effort increases, for example when purchased handling work is reduced but existing staff absorb more oversight. Such months receive an interpretation flag; they still need a separate staffing and quality assessment. A positive cash flow does not validate operational feasibility.
+Monthly cash effects can be positive while net human effort increases, for example when purchased handling work is reduced but existing staff absorb more oversight. Such months receive an interpretation flag; they still need a separate staffing and quality assessment. Operational feasibility is assessed separately.

@@ -1,9 +1,9 @@
-/* Synthetic presets; kept in parity with examples/manufacturing.json. */
+/* Sample presets; kept in parity with examples/manufacturing.json. */
 (function(root) {
   const sample = {
   "schema_version": 1,
-  "title": "Synthetic manufacturing enquiry workflow — investment assessment",
-  "evidence_status": "Illustrative assumptions only. Not measured results, a client quote, or a UniReverseAI deployment.",
+  "title": "Sample manufacturing enquiry workflow — investment assessment",
+  "evidence_status": "Illustrative assumptions for a sample manufacturing enquiry workflow.",
   "currency": "EUR",
   "inputs": {
     "monthly_volume": 1200,

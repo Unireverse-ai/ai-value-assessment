@@ -199,7 +199,7 @@ def markdown(report):
         "",
         "**Evidence status:** " + clean(report["evidence_status"]),
         "",
-        "Reproducible calculation of supplied assumptions. This is not a measured customer result.",
+        "Reproducible calculation of the supplied assumptions.",
         "",
         "## Scenario comparison",
         "",

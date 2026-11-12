@@ -104,11 +104,11 @@
   });
   node("download-inputs").addEventListener("click", () => {
     if (!current) return;
-    download({schema_version:1, title:"Custom workflow investment assumptions", evidence_status:"User-edited assumptions; not verified by the calculator", currency:"EUR", inputs:current, scenarios:[{name:"Custom",overrides:{}}]}, "workflow-assumptions.json");
+    download({schema_version:1, title:"Custom workflow investment assumptions", evidence_status:"User-edited assumptions", currency:"EUR", inputs:current, scenarios:[{name:"Custom",overrides:{}}]}, "workflow-assumptions.json");
   });
   node("download-results").addEventListener("click", () => {
     if (!current) return;
-    download({schema_version:1, evidence_status:"Calculation of user-edited assumptions; not measured customer results", currency:"EUR", inputs:current, results:result, method:"See docs/methodology.md; capacity and cash must not be added together."}, "workflow-calculation.json");
+    download({schema_version:1, evidence_status:"Calculation of user-edited assumptions", currency:"EUR", inputs:current, results:result, method:"See docs/methodology.md; capacity and cash must not be added together."}, "workflow-calculation.json");
   });
   load(1);
 })();

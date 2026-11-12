@@ -140,7 +140,7 @@ class CashflowTests(unittest.TestCase):
         self.assertAlmostEqual(s["largest_modelled_funding_gap"], 9794.64)
         self.assertEqual(s["full_budget_recovered_through_horizon_from_month"], 9)
         self.assertLess(s["net_cash_flow_total"], evaluate(self.sample["inputs"])["first_year_net_cash_benefit"])
-        self.assertIn("synthetic", markdown(report))
+        self.assertIn("sample", markdown(report))
         self.assertIn("not a guarantee", markdown(report))
         json.dumps(report, allow_nan=False)
 

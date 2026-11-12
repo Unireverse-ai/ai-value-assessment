@@ -1,8 +1,8 @@
-# Synthetic staged rollout — optimistic steady state with delayed adoption
+# Staged rollout — optimistic steady state with delayed adoption
 
-**Evidence status:** Entirely illustrative assumptions. Not a measured rollout, customer result or service quote.
+**Evidence status:** Illustrative assumptions for a staged rollout.
 
-Calculation of supplied assumptions. The shipped example is synthetic; this tool does not verify customer results.
+Calculation of supplied assumptions. The shipped example uses sample data.
 
 ## Horizon summary
 

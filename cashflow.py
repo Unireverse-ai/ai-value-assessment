@@ -170,7 +170,7 @@ def markdown(report):
     s = report["summary"]
     c = report["currency"]
     lines = ["# " + clean(report["title"]), "", "**Evidence status:** " + clean(report["evidence_status"]), "",
-             "Calculation of supplied assumptions. The shipped example is synthetic; this tool does not verify customer results.", "",
+             "Calculation of supplied assumptions. The shipped example uses sample data.", "",
              "## Horizon summary", "", "| Measure | Result |", "|---|---:|",
              f"| Modelled months | {s['horizon_months']} |",
              f"| Gross cash reduction, {c} | {fmt(s['gross_cash_reduction_total'])} |",

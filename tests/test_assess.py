@@ -189,9 +189,9 @@ class AssessmentTests(unittest.TestCase):
     def test_reports_preserve_evidence_labels_and_undefined_values(self):
         report = build_report(self.document)
         text = markdown(report)
-        self.assertIn("Not measured results", text)
+        self.assertIn("Illustrative assumptions", text)
         self.assertIn("Not reached / undefined", text)
-        self.assertIn("not a measured customer result", text)
+        self.assertIn("Reproducible calculation of the supplied assumptions", text)
         json.dumps(report, allow_nan=False)
 
     def test_cli_creates_reports_without_network(self):

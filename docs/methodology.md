@@ -2,7 +2,7 @@
 
 ## Decision being supported
 
-For a defined workflow, do plausible changes in handling effort justify their implementation and ongoing cash costs? The output helps frame a pilot decision. It is not evidence that the pilot will achieve the entered improvements.
+For a defined workflow, do plausible changes in handling effort justify their implementation and ongoing cash costs? The output frames the pilot decision; the entered improvements are confirmed by measurement in the pilot.
 
 The unit of analysis must be stable: for example, an incoming manufacturing enquiry, rather than alternating between enquiries, quotes, and orders in the same calculation.
 
@@ -73,7 +73,7 @@ The model applies the cash realization rate symmetrically when handling becomes 
 
 Additional oversight can exceed released handling time while the cash calculation remains positive, for example if external processing spend is reduced and an existing salaried team absorbs extra work. The report flags this combination. It is not automatically a mathematical contradiction, but it requires a separate staffing and quality assessment; a cash benefit cannot establish operational feasibility.
 
-## Worked base example: synthetic assumptions
+## Worked base example
 
 ```text
 1,200 incoming items × 80% eligible × 70% adopted = 672 processed items/month
@@ -87,7 +87,7 @@ EUR 12,000 / EUR 277.60 = 43.23 months simple payback
 −EUR 8,668.80 / (EUR 12,000 + 12 × EUR 708) = −42.30% first-year ROI
 ```
 
-Every number above is illustrative. The unfavorable first-year result is deliberate: the assessment exposes where a business case needs stronger evidence, a narrower scope, lower cost, or a different workflow.
+The unfavorable first-year result is kept visible on purpose: it shows where a business case needs stronger evidence, a narrower scope, lower cost, or a different workflow.
 
 ## Scenarios and sensitivity
 
@@ -97,4 +97,4 @@ The generated sensitivity table varies cash realization and adoption one factor 
 
 ## Evidence needed before a decision
 
-Use the [evidence checklist](evidence-checklist.md) to record baseline sampling, changed work effort, quality gates, adoption, incremental costs, and the source of cash savings. Recalculate when those assumptions change. A technically correct calculation cannot repair an unsupported baseline.
+Use the [evidence checklist](evidence-checklist.md) to record baseline sampling, changed work effort, quality gates, adoption, incremental costs, and the source of cash savings. Recalculate when those assumptions change.
